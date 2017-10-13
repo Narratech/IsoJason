@@ -37,7 +37,7 @@ public class JSON_Manager {
 	}
 		
 	/**
-	 * Mega switch de la muerte que en funcion del JSON que le llege, cogerá unos parámetros
+	 * Mega switch de la muerte que en funcion del JSON que le llege, coger unos parametros
 	 * u otros para crear el comando o lo que sea, y luego se pueda cambiar en el modelo 
 	 * y actuar en consecuensia
 	 * @param JSON

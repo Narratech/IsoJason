@@ -32,7 +32,7 @@ public class ConnectionImp extends Connection {
 				receivedSentence = receivedSentence.substring(0, receivePacket.getLength());
 				InetAddress IPAddress = receivePacket.getAddress();
 				
-				//A partir de aqui, receivedSentence es un JSON útil
+				//A partir de aqui, receivedSentence es un JSON util
 				this.show(">>", receivedSentence); // solo vale para mostrar la info
 				String sentSentence = this.elaborateResult(receivedSentence);
 				//this.show("<<", sentSentence); // solo vale para mostrar la info

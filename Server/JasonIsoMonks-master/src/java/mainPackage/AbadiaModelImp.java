@@ -45,7 +45,7 @@ public class AbadiaModelImp extends AbadiaModel{
 			Abadia.getInstance().addPercept("frayHector", "quiero_ir(capilla)");
 			break;
 		default: 
-			System.out.println("tocar ¿" + object + "?");
+			System.out.println("tocar a" + object + "?");
 			break;
 	}
 		return true;
@@ -94,7 +94,7 @@ public class AbadiaModelImp extends AbadiaModel{
 			case "cerrar_puerta":
 				Abadia.getInstance().addPercept("frayHector", "cerrada(cocina)");
 				break;
-			//default: System.out.println("Evento: ¿" + eventName + "?");
+			//default: System.out.println("Evento: " + eventName + "?");
 		}
 	}
    
