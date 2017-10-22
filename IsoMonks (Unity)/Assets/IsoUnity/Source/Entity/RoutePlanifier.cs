@@ -19,8 +19,10 @@ public class RoutePlanifier
             Stack<Cell> ruta = calculateRoute(routes[mover].Peek(), destination, mover, distance);
 			//Stack<Cell> ruta = new Stack<Cell>();
 			//ruta.Push (destination);
+			if(ruta!=null){
             ruta.Push(routes[mover].Peek());
             routes[mover] = ruta;
+			}
             return ruta != null;
 		}else{
 			/*Stack<Cell> ruta = new Stack<Cell>();
