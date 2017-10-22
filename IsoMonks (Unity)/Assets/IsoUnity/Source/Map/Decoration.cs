@@ -236,7 +236,7 @@ public class Decoration : MonoBehaviour{
 			int x = tile % (isoDec.nCols);
 			int y = Mathf.FloorToInt(tile/isoDec.nCols);
 			
-			this.GetComponent<Renderer>().material.mainTextureOffset = new Vector2 ( (x/((float)isoDec.nCols)),  (y/((float)isoDec.nRows)));
+			this.GetComponent<Renderer>().sharedMaterial.mainTextureOffset = new Vector2 ( (x/((float)isoDec.nCols)),  (y/((float)isoDec.nRows)));
 		}
 	}
 
