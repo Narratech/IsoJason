@@ -1,6 +1,7 @@
 package mainPackage;
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import jason.asSyntax.Literal;
@@ -42,8 +43,9 @@ public class JSON_Manager {
 	 * y actuar en consecuensia
 	 * @param JSON
 	 * @return
+	 * @throws JSONException 
 	 */
-	public static String actionSwitcher(String JSON){
+	public static String actionSwitcher(String JSON) throws JSONException {
 		// {"name":"move","parameters":{"entity":9084,"cell":9200}}
 		// {\"name\":\"move\",\"parameters\":{\"entity\":9084,\"cell\":9200}}
 		JSONObject obj = new JSONObject(JSON);

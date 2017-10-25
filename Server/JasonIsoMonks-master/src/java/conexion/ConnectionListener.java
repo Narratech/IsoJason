@@ -4,6 +4,7 @@ import java.net.DatagramPacket;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import mainPackage.AbadiaModel;
@@ -27,14 +28,23 @@ public class ConnectionListener extends Thread{
 			//System.out.println(data);
 			ArrayList<String> security_names = new ArrayList<String>();
 			security_names.addAll(Arrays.asList("move", "turn", "environment"));
-			JSONObject json = new JSONObject(data);
-			String name = json.getString("name");
+			JSONObject json;
+			try {
+				json = new JSONObject(data);
+				String name = json.getString("name");
+				
+				if (security_names.contains(name)) {
+					if (!name.equalsIgnoreCase("registerCell"))
+						System.out.println(direction + " " + data);
+				} else 
+					System.out.println("WARNING NEW COMMAND " + direction + " " + data);
+			} catch (JSONException e) {
+				System.out.println("JSONException!!!");
+				e.printStackTrace();
+			}
 			
-			if (security_names.contains(name)) {
-				if (!name.equalsIgnoreCase("registerCell"))
-					System.out.println(direction + " " + data);
-			} else 
-				System.out.println("WARNING NEW COMMAND " + direction + " " + data);
+			
+			
 		}
 	}
 

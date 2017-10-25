@@ -1,6 +1,8 @@
 package mainPackage;
 import java.util.HashMap;
 
+import org.json.JSONException;
+
 public abstract class AbadiaModel {
 	private static AbadiaModel instance;
 	
@@ -22,6 +24,6 @@ public abstract class AbadiaModel {
 	public abstract boolean ir_a(String location);
 	
 	//Receive Data
-	public abstract String recieveDataFromConnection(String data);
+	public abstract String recieveDataFromConnection(String data) throws JSONException;
 }
 

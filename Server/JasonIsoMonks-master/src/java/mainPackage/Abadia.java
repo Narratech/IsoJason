@@ -53,6 +53,7 @@ public class Abadia extends Environment {
 		super.stop();
 	}
 	
+	
 	private void generateGhost() {
 		System.out.println(" === Agente Fantasma === ");
 		RuntimeServicesInfraTier rsit = getEnvironmentInfraTier().getRuntimeServices();

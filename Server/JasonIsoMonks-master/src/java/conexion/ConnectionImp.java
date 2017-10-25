@@ -5,6 +5,7 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import mainPackage.AbadiaModel;
@@ -50,7 +51,12 @@ public class ConnectionImp extends Connection {
 	@SuppressWarnings("unused")
 	private String elaborateResult(String data) {
 		System.out.println("In");
+		try {
 			AbadiaModel.getInstance().recieveDataFromConnection(data);
+		}catch(JSONException e) {
+			System.out.println("JSONException: AbadiaModel.getInstance().recieveDataFromConnection(data) produced an error");
+			e.printStackTrace();
+		}
 		System.out.println("Out");
 		return data;
 	}	
@@ -67,14 +73,23 @@ public class ConnectionImp extends Connection {
 			//System.out.println(data);
 			ArrayList<String> security_names = new ArrayList<String>();
 			security_names.addAll(Arrays.asList("move", "turn", "environment"));
-			JSONObject json = new JSONObject(data);
-			String name = json.getString("name");
 			
-			if (security_names.contains(name)) {
-				if (!name.equalsIgnoreCase("registerCell"))
-					System.out.println(direction + " " + data);
-			} else 
-				System.out.println("WARNING NEW COMMAND " + direction + " " + data);
+			String name;
+			try {
+				JSONObject json = new JSONObject(data);
+				name = json.getString("name");
+				
+				if (security_names.contains(name)) {
+					if (!name.equalsIgnoreCase("registerCell"))
+						System.out.println(direction + " " + data);
+				} else 
+					System.out.println("WARNING NEW COMMAND " + direction + " " + data);
+			} catch (JSONException e) {
+				System.out.println("JSONException!!!");
+				e.printStackTrace();
+			}
+			
+			
 		}
 	}
 	

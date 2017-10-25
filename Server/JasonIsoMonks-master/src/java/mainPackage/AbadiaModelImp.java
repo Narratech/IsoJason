@@ -2,6 +2,7 @@ package mainPackage;
 
 import java.util.HashMap;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import conexion.Connection;
 
@@ -56,7 +57,7 @@ public class AbadiaModelImp extends AbadiaModel{
 		return true;
 	}
    
-	public String recieveDataFromConnection(String data){
+	public String recieveDataFromConnection(String data) throws JSONException{
 		String result = data;
 		JSONObject json = new JSONObject(data);
 		String name = json.getString("name");
@@ -77,48 +78,63 @@ public class AbadiaModelImp extends AbadiaModel{
 	
 	private void parseEvent(JSONObject json){
 		//{"name":"event","parameters":{"eventName":"campana_cerca","who":"frayFernando"}}
-		String eventName = json.getString("eventName");
-		String who = json.getString("who");
-		switch (eventName){
-			case "campana_cerca":
-				Abadia.getInstance().addPercept("frayFernando", "quiero_tocar(campana)");
-				break;
-			case "entrar_comedor":
-				Abadia.getInstance().addPercept("frayAlejandro", "quiero_ir(comedor)[source(" + who + ")]");
-				Abadia.getInstance().addPercept("frayHector", "quiero_ir(comedor)[source(" + who + ")]");
-				break;
-			case "hora_trabajar":
-				Abadia.getInstance().addPercept("frayAlejandro", "quiero_ir(taller)[source(" + who + ")]");
-				Abadia.getInstance().addPercept("frayHector", "quiero_ir(cocina)[source(" + who + ")]");
-				break;
-			case "cerrar_puerta":
-				Abadia.getInstance().addPercept("frayHector", "cerrada(cocina)");
-				break;
-			//default: System.out.println("Evento: " + eventName + "?");
+		try {
+			String eventName = json.getString("eventName");
+			String who = json.getString("who");
+			switch (eventName){
+				case "campana_cerca":
+					Abadia.getInstance().addPercept("frayFernando", "quiero_tocar(campana)");
+					break;
+				case "entrar_comedor":
+					Abadia.getInstance().addPercept("frayAlejandro", "quiero_ir(comedor)[source(" + who + ")]");
+					Abadia.getInstance().addPercept("frayHector", "quiero_ir(comedor)[source(" + who + ")]");
+					break;
+				case "hora_trabajar":
+					Abadia.getInstance().addPercept("frayAlejandro", "quiero_ir(taller)[source(" + who + ")]");
+					Abadia.getInstance().addPercept("frayHector", "quiero_ir(cocina)[source(" + who + ")]");
+					break;
+				case "cerrar_puerta":
+					Abadia.getInstance().addPercept("frayHector", "cerrada(cocina)");
+					break;
+					//default: System.out.println("Evento: " + eventName + "?");
+			}
+		}catch(JSONException e) {
+			System.out.println("JSONException!!!");
+			e.printStackTrace();
 		}
 	}
    
 	private void registerEnvironment(JSONObject json){
-		this.registerEntities(json.getJSONArray("entities"));
-		this.registerDecorations(json.getJSONArray("decorations"));
-		this.loadedEnvironment = true;
-		System.out.println("Entorno...OK");
+		try {
+			this.registerEntities(json.getJSONArray("entities"));
+			this.registerDecorations(json.getJSONArray("decorations"));
+			this.loadedEnvironment = true;
+			System.out.println("Entorno...OK");
+		}catch(JSONException e) {
+			System.out.println("JSONException!!!");
+			e.printStackTrace();
+		}
 	}
 	
 	private void registerEntities(JSONArray ents){
 		HashMap<String, HashMap<String,String>> hmTemp = new HashMap<String, HashMap<String,String>>();
 		for (int i = 0; i < ents.length(); i++){
-			JSONObject entidadActual = ents.getJSONObject(i);
+			try {
+				JSONObject entidadActual = ents.getJSONObject(i);
 			
-			String name = entidadActual.getString("name");
-			int id = entidadActual.getInt("id");
-			int cell = entidadActual.getInt("cell");
+				String name = entidadActual.getString("name");
+				int id = entidadActual.getInt("id");
+				int cell = entidadActual.getInt("cell");
 			
-			HashMap<String, String> atributos = new HashMap<String,String>();
-			atributos.put("id", Integer.toString(id));
-			atributos.put("cell", Integer.toString(cell));
+				HashMap<String, String> atributos = new HashMap<String,String>();
+				atributos.put("id", Integer.toString(id));
+				atributos.put("cell", Integer.toString(cell));
 	
-			hmTemp.put(name, atributos);
+				hmTemp.put(name, atributos);
+			}catch(JSONException e) {
+				System.out.println("JSONException on entity parammeter number " + i);
+				e.printStackTrace();
+			}
 		}
 		this.entities = hmTemp;
 	}
@@ -126,17 +142,22 @@ public class AbadiaModelImp extends AbadiaModel{
 	private void registerDecorations(JSONArray decs){
 		HashMap<String, HashMap<String,String>> hmTemp = new HashMap<String, HashMap<String,String>>();
 		for (int i = 0; i < decs.length(); i++){
-			JSONObject decorationActual = decs.getJSONObject(i);
+			try {
+				JSONObject decorationActual = decs.getJSONObject(i);
+				
+				String name = decorationActual.getString("name");
+				int id = decorationActual.getInt("id");
+				int cell = decorationActual.getInt("cell");
 			
-			String name = decorationActual.getString("name");
-			int id = decorationActual.getInt("id");
-			int cell = decorationActual.getInt("cell");
-			
-			HashMap<String, String> atributos = new HashMap<String,String>();
+				HashMap<String, String> atributos = new HashMap<String,String>();
 				atributos.put("id", Integer.toString(id));
 				atributos.put("cell", Integer.toString(cell));
 			
-			hmTemp.put(name, atributos);
+				hmTemp.put(name, atributos);
+			}catch(JSONException e) {
+				System.out.println("JSONException on entity parammeter number " + i);
+				e.printStackTrace();
+			}
 		}		
 		this.decorations = hmTemp;
 	}
