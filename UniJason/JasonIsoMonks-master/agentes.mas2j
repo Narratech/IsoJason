@@ -1,0 +1,15 @@
+MAS agentes {
+
+	infrastructure: Centralised
+	
+	environment: mainPackage.Abadia //sin parametros
+	
+	agents:
+	  frayAlejandro;
+	  frayFernando;
+	  frayHector;
+	  //system;
+
+	aslSourcePath:
+		"src/asl";
+}
