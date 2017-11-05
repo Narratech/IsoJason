@@ -1,0 +1,1 @@
+Para que funcione el script, el conteido del directorio jason debe mantenerse intacto
