@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEditor;
 using System.Diagnostics;
@@ -12,10 +11,21 @@ public class Start {
         Process myProcess = new Process();
         myProcess.StartInfo.UseShellExecute = false;
         myProcess.StartInfo.RedirectStandardOutput = true;
-        myProcess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
-        string r = "/c" + "\"" + Application.dataPath + "/UniJason/script.bat" + "\"";
-        myProcess.StartInfo.Arguments = r;
+        string so = Environment.OSVersion.ToString();
+        UnityEngine.Debug.Log(so);
+        if (so.Contains("Windows")) {
+            UnityEngine.Debug.Log("Se está ejecutando sobre Windows"); 
+            myProcess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
+            string r = "/c" + "\"" + Application.dataPath + "/UniJason/script.bat" + "\"";
+            myProcess.StartInfo.Arguments = r;
+        }
+        else
+        {
+            string r = "\"" + Application.dataPath + "/UniJason/script.bat" + "\"";
+            myProcess.StartInfo.FileName = r;
+        }
         myProcess.Start();
-        System.Threading.Thread.Sleep(5000);
+        System.Threading.Thread.Sleep(3000);
+         
     }
 }
