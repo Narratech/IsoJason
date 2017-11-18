@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gold Miners 3D", "Gold Miners 3D.csproj", "{32017A65-FE23-7AC8-A4C5-A7D28CD74896}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
