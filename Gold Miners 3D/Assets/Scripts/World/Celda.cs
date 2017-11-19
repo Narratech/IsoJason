@@ -26,35 +26,23 @@ public class Celda : MonoBehaviour {
 	void Update () {
         
 	}
-
+    /*
     public bool HayOro() {
         return oro.activeInHierarchy;
-    }
-
-   /* public Agente GetAgente() {
-        return agente;
     }*/
 
-    public bool EstaLibre() {
-        return libre;
-    }
-
-    public void PonerAqui(string objeto) {
-        if (objeto == "agente"){
-            //agente = (Agente)objeto;
+    public void PlaceHere(int value) {
+        if (value == GoldMinersWorld.AGENT)
             libre = false;
-        }
-        else if (objeto == "oro")
+        else if (value == GoldMinersWorld.GOLD)
             oro.SetActive(true);
     }
 
-    public void QuitarDeAqui(string objeto) {
-        if (objeto == "oro")
-            oro.SetActive(false);
-        else if (objeto == "agente") {
-            //agente = null;
+    public void RemoveFromHere(int value) {
+        if (value == GoldMinersWorld.AGENT)
             libre = true;
-        }
+        else if (value == GoldMinersWorld.GOLD)
+            oro.SetActive(false);
     }
 
 }

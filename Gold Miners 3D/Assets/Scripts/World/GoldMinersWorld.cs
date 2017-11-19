@@ -2,26 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tablero : MonoBehaviour {
+public class GoldMinersWorld : GridWorld {
 
     //Variables accesibles desde el Inspector
-    public int dimFilas;
-    public int dimColumnas;
-    public int numAgentes;
     public int initialNbGolds;
     public Object celdaPrefab;
     public Object agentePrefab;
 
     //Variables del modelo
+    public const int GOLD = 16;
+    public const int DEPOT = 32;
+    public const int ENEMY = 64;
     protected int goldsInDepot;
+
     private Celda[,] tableroCeldas;
-    public struct Location
-    {
-        public int x;
-        public int y;
-    };
-    private Location[] listaPosAgentes;
-    private Agente[] listaAgentes;
     private HashSet<int> agWithGold;
     //Location of depot where gold is dropped
     private Location depot;
@@ -32,7 +26,7 @@ public class Tablero : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        InicializarTablero(dimFilas, dimColumnas);
+        InicializarTablero(width, height);
         //METODO QUE CALCULE POSICION DEL DEPOSITO
         //InicializarDeposito(x, y);
         ColocarOro();
@@ -44,22 +38,14 @@ public class Tablero : MonoBehaviour {
 		
 	}
 
-    void PonerEnCelda(int fila, int columna, string objeto) {
-        tableroCeldas[fila, columna].PonerAqui(objeto);
-    }
 
-    void QuitarDeCelda(string objeto, int fila, int columna) {
-        tableroCeldas[fila, columna].QuitarDeAqui(objeto);
-    }
 
     //Use this for initialize the board game
     private void InicializarTablero (int filas, int columnas) {
         tableroCeldas = new Celda[filas, columnas];
-        for (int i = 0; i < filas; i++)
-        {
-            for (int j = 0; j < columnas; j++)
-            {
-                tableroCeldas[i, j] = InstanciarCeldas(i, j);
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                    tableroCeldas[i, j] = InstanciarCeldas(i, j);
             }
         }
     }
@@ -80,27 +66,30 @@ public class Tablero : MonoBehaviour {
     }
 
     private void ColocarOro() {
-        int colocados = 0, max = dimFilas * dimColumnas; ;
+        int placed = 0, max = width * height; ;
         int p;
-        while (colocados < initialNbGolds)
-        {
-            int i = 0;
-            while(i < dimFilas && colocados < initialNbGolds) {
-                int j = 0;
-                while (j < dimColumnas && colocados < initialNbGolds) {
-                    if (tableroCeldas[i, j].EstaLibre() && !tableroCeldas[i, j].HayOro()) {
-                        p = Random.Range(0, max);
-                        if (p < max*0.10) {
-                            PonerEnCelda(i, j, "oro");
-                            colocados++;
+        if (initialNbGolds <= max) {
+            while (placed < initialNbGolds)
+            {
+                int i = 0;
+                while (i < width && placed < initialNbGolds) {
+                    int j = 0;
+                    while (j < height && placed < initialNbGolds) {
+                        if (IsFree(i, j) && !HasObject(GoldMinersWorld.GOLD, i, j)) {
+                            p = Random.Range(0, max);
+                            if (p < max * 0.10) {
+                                PlaceOnView(GoldMinersWorld.GOLD, i, j);
+                                placed++;
+                            }
+
                         }
-                        
+                        j++;
                     }
-                    j++;
+                    i++;
                 }
-                i++;
-            } 
+            }
         }
+
     }
 
     private void ColocarAgentes() {
@@ -108,13 +97,39 @@ public class Tablero : MonoBehaviour {
     }
 
 
-    //Metodos de control del tablero (Adaptación de los métodos originales)
-   /* bool LlevaOro(int ag) {
-        return listaAgentes[ag].TieneOro();
+
+    //Overrides GridWorld functions Add, Remove and SetAgPos for updating the view from Tablero
+
+    public override void SetAgPos(int ag, int x, int y) {
+        Location oldLoc = GetAgPos(ag);
+
+        base.SetAgPos(ag, x, y);
+        //Eliminacion y adición del agente en la vista
+        RemoveFromView(GoldMinersWorld.AGENT, oldLoc.x, oldLoc.y);
+        PlaceOnView(GoldMinersWorld.AGENT, x, y);  
     }
-    void DarOro(int ag) {
-        listaAgentes[ag].AddOro();
-    }*/
+
+    public override void Remove(int value, Location l) {
+        base.Remove(value, l);
+        RemoveFromView(value, l.x, l.y);
+    }
+
+    public override void Add(int value, Location l) {
+        base.Add(value, l);
+        PlaceOnView(value, l.x, l.y);
+    }
+
+    void RemoveFromView(int value, int x, int y) {
+        tableroCeldas[x, y].RemoveFromHere(value);
+    }
+
+    void PlaceOnView(int value, int x, int y) {
+        tableroCeldas[x, y].PlaceHere(value);
+    }
+
+
+
+    //Metodos de control del tablero (Adaptación de los métodos originales)
 
     Location GetDepot() {
         return depot;
@@ -139,51 +154,43 @@ public class Tablero : MonoBehaviour {
     bool IsCarryingGold(int ag) {
         return agWithGold.Contains(ag);
     }
+
     void SetDepot(int x, int y)
     {
-        depot.x = x;
-        depot.y = y;
+        depot = new Location(x, y);
+        data[x, y] = DEPOT;
     }
+
     public void SetAgCarryingGold(int ag) {
         agWithGold.Add(ag);
     }
+
     public void SetAgNotCarryingGold(int ag) {
         agWithGold.Remove(ag);
     }
 
-
+    // Métdodos de accion de los agentes
     bool Move(Direccion dir, int ag) {
-        Location pos = listaPosAgentes[ag];
-        int xAct = pos.x;
-        int yAct = pos.y;
-
+        Location l = GetAgPos(ag);
         switch (dir){
             case Direccion.UP:
-                if (tableroCeldas[xAct, yAct - 1].EstaLibre()) {
-                    QuitarDeCelda("agente", xAct, yAct);
-                    PonerEnCelda(xAct, yAct - 1, "agente");
-                    listaPosAgentes[ag].y = yAct - 1;
+                if (IsFree(l)) {
+                    SetAgPos(ag, l.x, l.y);
                 }
                 break;
             case Direccion.DOWN:
-                if (tableroCeldas[xAct, yAct + 1].EstaLibre()) {
-                    QuitarDeCelda("agente", xAct, yAct);
-                    PonerEnCelda(xAct, yAct + 1, "agente");
-                    listaPosAgentes[ag].y = yAct + 1;
+                if (IsFree(l)) {
+                    SetAgPos(ag, l.x, l.y);
                 }
                 break;
             case Direccion.RIGHT:
-                if (tableroCeldas[xAct + 1, yAct].EstaLibre()) {
-                    QuitarDeCelda("agente", xAct, yAct);
-                    PonerEnCelda(xAct + 1, yAct, "agente");
-                    listaPosAgentes[ag].y = xAct + 1;
+                if (IsFree(l)) {
+                    SetAgPos(ag, l.x, l.y);
                 }
                 break;
             case Direccion.LEFT:
-                if (tableroCeldas[xAct - 1, yAct].EstaLibre()) {
-                    QuitarDeCelda("agente", xAct, yAct);
-                    PonerEnCelda(xAct - 1, yAct, "agente");
-                    listaPosAgentes[ag].y = xAct - 1;
+                if (IsFree(l)) {
+                    SetAgPos(ag, l.x, l.y);
                 }
                 break;
         }
@@ -191,12 +198,10 @@ public class Tablero : MonoBehaviour {
     }
 
     bool Pick(int ag){
-        Location pos = listaPosAgentes[ag];
-        int x = pos.x;
-        int y = pos.y;
-        if (tableroCeldas[x,y].HayOro()) {
+        Location l = GetAgPos(ag);
+        if (HasObject(GoldMinersWorld.GOLD, l)){
             if (IsCarryingGold(ag)) {
-                QuitarDeCelda("oro",x, y);
+                Remove(GoldMinersWorld.GOLD, l);
                 SetAgCarryingGold(ag);
                 return true;
             }
@@ -212,14 +217,14 @@ public class Tablero : MonoBehaviour {
     }
 
     bool Drop(int ag){
-        Location pos = listaPosAgentes[ag];
+        Location l = GetAgPos(ag);
         if (IsCarryingGold(ag)) {
-            if (pos.Equals(depot)) {
+            if (l.Equals(depot)) {
                 goldsInDepot++;
                 //logger
             }
             else {
-                PonerEnCelda(pos.x, pos.y, "oro");
+                Add(GoldMinersWorld.GOLD, l);
             }
             SetAgNotCarryingGold(ag);
             return true;
