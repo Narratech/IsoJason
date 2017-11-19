@@ -21,8 +21,9 @@ public class Start {
         }
         else
         {
-            string r = "\"" + Application.dataPath + "/UniJason/script.bat" + "\"";
-            myProcess.StartInfo.FileName = r;
+            string r = Application.dataPath + "/UniJason/script.sh";
+            myProcess.StartInfo.FileName = "/bin/sh";
+            myProcess.StartInfo.Arguments = r;
         }
         myProcess.Start();
         System.Threading.Thread.Sleep(3000);
