@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEditor;
 using System.Diagnostics;
@@ -14,19 +14,22 @@ public class Start {
         string so = Environment.OSVersion.ToString();
         UnityEngine.Debug.Log(so);
         if (so.Contains("Windows")) {
-            UnityEngine.Debug.Log("Se está ejecutando sobre Windows"); 
+            UnityEngine.Debug.Log("Se est� ejecutando sobre Windows"); 
             myProcess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
             string r = "/c" + "\"" + Application.dataPath + "/UniJason/script.bat" + "\"";
             myProcess.StartInfo.Arguments = r;
         }
-        else
-        {
+        else {
             string r = Application.dataPath + "/UniJason/script.sh";
-            myProcess.StartInfo.FileName = "/bin/sh";
-            myProcess.StartInfo.Arguments = r;
+            myProcess.StartInfo.FileName = /bin/sh;
+		myProcess.StartInfo.Arguments = r;
         }
         myProcess.Start();
-        System.Threading.Thread.Sleep(3000);
-         
+        Connection c = Connection.getInstance();
+        string jsonMap = "{\"name\":\"unity\",\"parameters\":{}}";
+        Connection.getInstance().sendEvent(true, jsonMap);
+        while (c.ReceivedEvent()==null){
+            System.Threading.Thread.Sleep(1);
+        }         
     }
 }

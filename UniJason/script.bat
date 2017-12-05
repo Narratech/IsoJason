@@ -1,7 +1,7 @@
-if exist MASRunning.txt (
+if exist EmptyFile.txt (
     rem file exists
 ) else (
-   	type NUL > MASRunning.txt
+   	type NUL > EmptyFile.txt
 	start /wait javaw -jar "%~dp0server.jar"
 	del EmptyFile.txt
 )
