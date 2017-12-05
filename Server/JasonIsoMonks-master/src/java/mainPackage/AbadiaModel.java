@@ -18,7 +18,7 @@ public abstract class AbadiaModel {
     public abstract HashMap<String, HashMap<String,String>> getEntities();
 	public abstract HashMap<String, HashMap<String,String>> getDecorations();
 	public abstract boolean isEnvironmentLoaded();
-       
+    public abstract boolean isUnityLoaded();
 	//Acciones de los agentes o del entorno
 	public abstract boolean tocar(String object);
 	public abstract boolean ir_a(String location);

@@ -13,6 +13,7 @@ public class AbadiaModelImp extends AbadiaModel{
 	private HashMap<String, HashMap<String,String>> decorations;
 	private boolean loadedEnvironment;
 	private int cellEvent;
+	private boolean unityReady;
 
 	public AbadiaModelImp() {
 		this.Agent = "";
@@ -20,6 +21,7 @@ public class AbadiaModelImp extends AbadiaModel{
 		this.decorations = new HashMap<String, HashMap<String,String>>();			   
 		this.loadedEnvironment = false;
 		this.cellEvent = -1;
+		this.unityReady=false;
 	}
 	
 	public void setAgent(String agente) {
@@ -36,6 +38,10 @@ public class AbadiaModelImp extends AbadiaModel{
 	
 	public boolean isEnvironmentLoaded(){
 		return this.loadedEnvironment;
+	}
+	
+	public boolean isUnityLoaded() {
+		return this.unityReady;
 	}
 	
 	public boolean tocar(String object){
@@ -63,6 +69,10 @@ public class AbadiaModelImp extends AbadiaModel{
 		String name = json.getString("name");
 		JSONObject parameters = json.getJSONObject("parameters");
 		switch(name) {
+			case "unity":
+				this.unityReady=true;
+				sendConfirmation();
+				break;
 			case "environment":
 				this.registerEnvironment(parameters);
 				Abadia.getInstance().addPercept("frayHector", "quiero_ir(capilla)");
@@ -76,6 +86,13 @@ public class AbadiaModelImp extends AbadiaModel{
 		return result;
 	}
 	
+	private void sendConfirmation() {
+		System.out.println("Enviando Confirmación a Unity...");
+		String sentSentence = "{\"name\":\"ok\",\"parameters\":{}}";
+		Connection.getInstance().send(sentSentence);
+		
+	}
+
 	private void parseEvent(JSONObject json){
 		//{"name":"event","parameters":{"eventName":"campana_cerca","who":"frayFernando"}}
 		try {
