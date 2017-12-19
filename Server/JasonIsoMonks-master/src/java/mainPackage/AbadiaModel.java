@@ -23,6 +23,7 @@ public abstract class AbadiaModel {
 	public abstract boolean tocar(String object);
 	public abstract boolean ir_a(String location);
 	
+	public abstract void sendConfirmation();
 	//Receive Data
 	public abstract String recieveDataFromConnection(String data) throws JSONException;
 }

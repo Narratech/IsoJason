@@ -86,8 +86,8 @@ public class AbadiaModelImp extends AbadiaModel{
 		return result;
 	}
 	
-	private void sendConfirmation() {
-		System.out.println("Enviando Confirmación a Unity...");
+	public void sendConfirmation() {
+		System.out.println("Enviando...");
 		String sentSentence = "{\"name\":\"ok\",\"parameters\":{}}";
 		Connection.getInstance().send(sentSentence);
 		

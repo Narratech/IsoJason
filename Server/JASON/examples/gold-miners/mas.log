@@ -1,45 +1,549 @@
+[BaseCentralisedMAS] Creating environment mining.MiningPlanet(3,50,yes)
+[BaseCentralisedMAS] Creating agent leader (1/1)
+[httpserver] HttpServer created http 0.0.0.0/0.0.0.0:3272
+[httpserver] context created: /
+[httpserver] context created: /agents
+[httpserver] context created: /agent-mind/no_ag
+[leader] as2j: AgentSpeak program 'leader.asl' parsed successfully!
+[leader] as2j: AgentSpeak program 'jar:file:/Users/Juan/Documents/GitHub/IsoJason/Server/JASON/libs/jason-2.2.jar!/asl/kqmlPlans.asl' parsed successfully!
+[BaseCentralisedMAS] Creating agent miner1 (1/4)
+[miner1] as2j: AgentSpeak program 'miner.asl' parsed successfully!
+[miner1] Doing (add) brf for free[source(self)]
+[miner1] Added event +free[source(self)], events = [+free[source(self)]]
+[miner1] Doing (add) brf for last_dir(null)[source(self)]
+[miner1] as2j: AgentSpeak program 'jar:file:/Users/Juan/Documents/GitHub/IsoJason/Server/JASON/libs/jason-2.2.jar!/asl/kqmlPlans.asl' parsed successfully!
+[BaseCentralisedMAS] Creating agent miner2 (2/4)
+[miner2] as2j: AgentSpeak program 'miner.asl' parsed successfully!
+[miner2] Doing (add) brf for free[source(self)]
+[miner2] Added event +free[source(self)], events = [+free[source(self)]]
+[miner2] Doing (add) brf for last_dir(null)[source(self)]
+[miner2] as2j: AgentSpeak program 'jar:file:/Users/Juan/Documents/GitHub/IsoJason/Server/JASON/libs/jason-2.2.jar!/asl/kqmlPlans.asl' parsed successfully!
+[BaseCentralisedMAS] Creating agent miner3 (3/4)
+[miner3] as2j: AgentSpeak program 'miner.asl' parsed successfully!
+[miner3] Doing (add) brf for free[source(self)]
+[miner3] Added event +free[source(self)], events = [+free[source(self)]]
+[miner3] Doing (add) brf for last_dir(null)[source(self)]
+[miner3] as2j: AgentSpeak program 'jar:file:/Users/Juan/Documents/GitHub/IsoJason/Server/JASON/libs/jason-2.2.jar!/asl/kqmlPlans.asl' parsed successfully!
+[BaseCentralisedMAS] Creating agent miner4 (4/4)
+[miner4] as2j: AgentSpeak program 'miner.asl' parsed successfully!
+[miner4] Doing (add) brf for free[source(self)]
+[miner4] Added event +free[source(self)], events = [+free[source(self)]]
+[miner4] Doing (add) brf for last_dir(null)[source(self)]
+[miner4] as2j: AgentSpeak program 'jar:file:/Users/Juan/Documents/GitHub/IsoJason/Server/JASON/libs/jason-2.2.jar!/asl/kqmlPlans.asl' parsed successfully!
+[BaseCentralisedMAS] Creating controller jason.control.ExecutionControlGUI
+[leader] Start new reasoning cycle
+[miner1] Start new reasoning cycle
+[miner3] Start new reasoning cycle
+[miner2] Start new reasoning cycle
+[miner4] Start new reasoning cycle
+[miner1] percepts: [gsize(3,35,35), depot(3,16,16), pos(1,0), cell(1,0,ally), cell(1,1,gold)]
+[miner2] percepts: [gsize(3,35,35), depot(3,16,16), pos(20,0), cell(20,0,ally)]
+[miner3] percepts: [gsize(3,35,35), depot(3,16,16), pos(6,26), cell(5,25,obstacle), cell(6,25,obstacle), cell(6,26,ally), cell(7,25,obstacle), cell(7,26,obstacle), cell(7,27,obstacle)]
+[miner4] percepts: [gsize(3,35,35), depot(3,16,16), pos(20,20), cell(19,19,obstacle), cell(20,20,gold), cell(20,20,ally), cell(20,21,gold)]
+[leader] percepts: [gsize(3,35,35), depot(3,16,16)]
+[miner3] Added event +cell(7,26,obstacle)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)]]
+[miner2] Added event +cell(20,0,ally)[source(percept)], events = [+free[source(self)], +cell(20,0,ally)[source(percept)]]
+[miner4] Added event +cell(20,20,gold)[source(percept)], events = [+free[source(self)], +cell(20,20,gold)[source(percept)]]
+[miner3] Added event +cell(6,26,ally)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)], +cell(6,26,ally)[source(percept)]]
+[miner1] Added event +gsize(3,35,35)[source(percept)], events = [+free[source(self)], +gsize(3,35,35)[source(percept)]]
+[miner3] Added event +cell(7,25,obstacle)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)], +cell(6,26,ally)[source(percept)], +cell(7,25,obstacle)[source(percept)]]
+[miner2] Added event +gsize(3,35,35)[source(percept)], events = [+free[source(self)], +cell(20,0,ally)[source(percept)], +gsize(3,35,35)[source(percept)]]
+[miner4] Added event +cell(19,19,obstacle)[source(percept)], events = [+free[source(self)], +cell(20,20,gold)[source(percept)], +cell(19,19,obstacle)[source(percept)]]
+[leader] Added event +gsize(3,35,35)[source(percept)], events = [+gsize(3,35,35)[source(percept)]]
+[miner3] Added event +cell(6,25,obstacle)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)], +cell(6,26,ally)[source(percept)], +cell(7,25,obstacle)[source(percept)], +cell(6,25,obstacle)[source(percept)]]
+[miner1] Added event +cell(1,0,ally)[source(percept)], events = [+free[source(self)], +gsize(3,35,35)[source(percept)], +cell(1,0,ally)[source(percept)]]
+[miner3] Added event +gsize(3,35,35)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)], +cell(6,26,ally)[source(percept)], +cell(7,25,obstacle)[source(percept)], +cell(6,25,obstacle)[source(percept)], +gsize(3,35,35)[source(percept)]]
+[miner1] Added event +cell(1,1,gold)[source(percept)], events = [+free[source(self)], +gsize(3,35,35)[source(percept)], +cell(1,0,ally)[source(percept)], +cell(1,1,gold)[source(percept)]]
+[miner3] Added event +cell(5,25,obstacle)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)], +cell(6,26,ally)[source(percept)], +cell(7,25,obstacle)[source(percept)], +cell(6,25,obstacle)[source(percept)], +gsize(3,35,35)[source(percept)], +cell(5,25,obstacle)[source(percept)]]
+[miner3] Added event +cell(7,27,obstacle)[source(percept)], events = [+free[source(self)], +cell(7,26,obstacle)[source(percept)], +cell(6,26,ally)[source(percept)], +cell(7,25,obstacle)[source(percept)], +cell(6,25,obstacle)[source(percept)], +gsize(3,35,35)[source(percept)], +cell(5,25,obstacle)[source(percept)], +cell(7,27,obstacle)[source(percept)]]
+[leader] Selected event +gsize(3,35,35)[source(percept)]
+[miner1] Selected event +free[source(self)]
+[miner3] Selected event +free[source(self)]
+[miner4] Added event +cell(20,21,gold)[source(percept)], events = [+free[source(self)], +cell(20,20,gold)[source(percept)], +cell(19,19,obstacle)[source(percept)], +cell(20,21,gold)[source(percept)]]
+[miner2] Selected event +free[source(self)]
+[miner4] Added event +gsize(3,35,35)[source(percept)], events = [+free[source(self)], +cell(20,20,gold)[source(percept)], +cell(19,19,obstacle)[source(percept)], +cell(20,21,gold)[source(percept)], +gsize(3,35,35)[source(percept)]]
+[miner4] Added event +cell(20,20,ally)[source(percept)], events = [+free[source(self)], +cell(20,20,gold)[source(percept)], +cell(19,19,obstacle)[source(percept)], +cell(20,21,gold)[source(percept)], +gsize(3,35,35)[source(percept)], +cell(20,20,ally)[source(percept)]]
+[miner4] Selected event +free[source(self)]
+[miner4] Selected option (@l__140[source(self)] +free <- !wait_for_quad.,{}) for event +free[source(self)]
+[miner3] Selected option (@l__99[source(self)] +free <- !wait_for_quad.,{}) for event +free[source(self)]
+[leader] Selected option (@quads[atomic,source(self)] +gsize(S,W,H) <- .print("Defining quadrants for ",W,"x",H," simulation ",S); +quad(S,1,0,0,((W div 2)-1),((H div 2)-1)); +quad(S,2,(W div 2),0,(W-1),((H div 2)-1)); +quad(S,3,0,(H div 2),((W div 2)-1),(H-1)); +quad(S,4,(W div 2),(H div 2),(W-1),(H-1)); .print("Finished all quadrs for ",S).,{S=3, W=35, H=35}) for event +gsize(3,35,35)[source(percept)]
+[miner2] Selected option (@l__58[source(self)] +free <- !wait_for_quad.,{}) for event +free[source(self)]
+[miner1] Selected option (@l__17[source(self)] +free <- !wait_for_quad.,{}) for event +free[source(self)]
 [leader] Defining quadrants for 35x35 simulation 3
-[leader] Finished all quadrs for 3
+[miner4] Selected intention intention 1: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner2] Selected intention intention 2: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[leader] Doing (add) brf for quad(3,1,0,0,16,16)[source(self)]
+[miner2] Informing controller that I finished a reasoning cycle 0. Breakpoint is false
+[miner1] Selected intention intention 5: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner1] Informing controller that I finished a reasoning cycle 0. Breakpoint is false
+[miner4] Informing controller that I finished a reasoning cycle 0. Breakpoint is false
+[leader] Added event +quad(3,1,0,0,16,16)[source(self)]
+intention 4: 
+    +gsize(3,35,35)[source(percept)] <- ... +quad(S,1,0,0,((W div 2)-1),((H div 2)-1)); +quad(S,2,(W div 2),0,(W-1),((H div 2)-1)); +quad(S,3,0,(H div 2),((W div 2)-1),(H-1)); +quad(S,4,(W div 2),(H div 2),(W-1),(H-1)); .print("Finished all quadrs for ",S) / {S=3, W=35, H=35}
+, events = []
+[miner3] Selected intention intention 3: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[leader] Informing controller that I finished a reasoning cycle 0. Breakpoint is false
+[miner3] Informing controller that I finished a reasoning cycle 0. Breakpoint is false
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[ExecutionControl] Cycle 0 finished by timeout!
+[leader] Start new reasoning cycle
+[miner2] Start new reasoning cycle
+[miner2] Selected event +cell(20,0,ally)[source(percept)]
+[leader] Doing (add) brf for quad(3,2,17,0,34,16)[source(self)]
+[miner1] Start new reasoning cycle
+[miner1] Selected event +gsize(3,35,35)[source(percept)]
+[leader] Added event +quad(3,2,17,0,34,16)[source(self)]
+intention 4: 
+    +gsize(3,35,35)[source(percept)] <- ... +quad(S,2,(W div 2),0,(W-1),((H div 2)-1)); +quad(S,3,0,(H div 2),((W div 2)-1),(H-1)); +quad(S,4,(W div 2),(H div 2),(W-1),(H-1)); .print("Finished all quadrs for ",S) / {S=3, W=35, H=35}
+, events = []
+[miner1] Selected option (@l__12[source(self)] +gsize(S,_32,_33) <- !send_init_pos(S).,{S=3, _33=35, _32=35}) for event +gsize(3,35,35)[source(percept)]
+[miner4] Start new reasoning cycle
+[miner3] Start new reasoning cycle
+[miner1] Selected intention intention 6: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _33=35, _32=35}
+
+[miner3] Selected event +cell(7,26,obstacle)[source(percept)]
+[miner1] Informing controller that I finished a reasoning cycle 1. Breakpoint is false
+[miner2] Selected event +gsize(3,35,35)[source(percept)]
+[miner2] Selected option (@l__53[source(self)] +gsize(S,_93,_94) <- !send_init_pos(S).,{S=3, _93=35, _94=35}) for event +gsize(3,35,35)[source(percept)]
+[miner2] Selected intention intention 7: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _93=35, _94=35}
+
+[miner2] Informing controller that I finished a reasoning cycle 1. Breakpoint is false
+[ExecutionControl] Agent leader has finished cycle 1, # of finished agents is 1/5
+[ExecutionControl] Agent miner2 has finished cycle 1, # of finished agents is 2/5
+[ExecutionControl] Agent miner1 has finished cycle 1, # of finished agents is 3/5
+[miner3] Selected event +cell(6,26,ally)[source(percept)]
+[miner3] Selected event +cell(7,25,obstacle)[source(percept)]
+[miner3] Selected event +cell(6,25,obstacle)[source(percept)]
+[miner3] Selected event +gsize(3,35,35)[source(percept)]
+[miner3] Selected option (@l__94[source(self)] +gsize(S,_154,_155) <- !send_init_pos(S).,{S=3, _155=35, _154=35}) for event +gsize(3,35,35)[source(percept)]
+[miner3] Selected intention intention 8: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _155=35, _154=35}
+
+[miner3] Informing controller that I finished a reasoning cycle 1. Breakpoint is false
+[ExecutionControl] Agent miner3 has finished cycle 1, # of finished agents is 4/5
+[miner4] Selected event +cell(20,20,gold)[source(percept)]
+[miner4] Selected option (@pcell[atomic,source(self)] +cell(X,Y,gold) : (not (carrying_gold) & free) <- -free; +gold(X,Y); .print("Gold perceived: ",gold(X,Y)); !init_handle(gold(X,Y)).,{X=20, Y=20}) for event +cell(20,20,gold)[source(percept)]
+[miner4] Doing (del) brf for free[source(self)] in BB=true
+[miner4] Removed:free[source(self)]
+[miner4] Added event -free[source(self)]
+intention 9: 
+    +cell(20,20,gold)[source(percept)] <- ... -free; +gold(X,Y); .print("Gold perceived: ",gold(X,Y)); !init_handle(gold(X,Y)) / {X=20, Y=20}
+, events = [+cell(19,19,obstacle)[source(percept)], +cell(20,21,gold)[source(percept)], +gsize(3,35,35)[source(percept)], +cell(20,20,ally)[source(percept)], +!wait_for_quad[source(self)]
+intention 1: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+]
+[miner4] Informing controller that I finished a reasoning cycle 1. Breakpoint is false
+[ExecutionControl] Agent miner4 has finished cycle 1, # of finished agents is 5/5
+[ExecutionControl] All agents have finished cycle 1
+[ExecutionControl] Cycle 1 finished by timeout!
+[ExecutionControl] Cycle 1 finished by timeout!
+[ExecutionControl] Cycle 1 finished by timeout!
+[ExecutionControl] Cycle 1 finished by timeout!
+[ExecutionControl] Cycle 1 finished by timeout!
+[leader] Start new reasoning cycle
+[miner3] Start new reasoning cycle
+[miner3] Selected event +cell(5,25,obstacle)[source(percept)]
+[miner1] Start new reasoning cycle
+[miner1] Selected event +cell(1,0,ally)[source(percept)]
+[miner3] Selected event +cell(7,27,obstacle)[source(percept)]
+[miner1] Selected event +cell(1,1,gold)[source(percept)]
+[miner3] Selected event +!wait_for_quad[source(self)]
+intention 3: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner1] Selected option (@pcell[atomic,source(self)] +cell(X,Y,gold) : (not (carrying_gold) & free) <- -free; +gold(X,Y); .print("Gold perceived: ",gold(X,Y)); !init_handle(gold(X,Y)).,{X=1, Y=1}) for event +cell(1,1,gold)[source(percept)]
+[leader] Doing (add) brf for quad(3,3,0,17,16,34)[source(self)]
+[miner1] Doing (del) brf for free[source(self)] in BB=true
+[leader] Added event +quad(3,3,0,17,16,34)[source(self)]
+intention 4: 
+    +gsize(3,35,35)[source(percept)] <- ... +quad(S,3,0,(H div 2),((W div 2)-1),(H-1)); +quad(S,4,(W div 2),(H div 2),(W-1),(H-1)); .print("Finished all quadrs for ",S) / {S=3, W=35, H=35}
+, events = []
+[miner4] Start new reasoning cycle
+[miner3] Selected option (@l__100[source(self)] +!wait_for_quad : free <- .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad.,{}) for event +!wait_for_quad[source(self)]
+intention 3: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner4] Doing (add) brf for gold(20,20)[source(self)]
+[miner3] Selected intention intention 3: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner4] Added event +gold(20,20)[source(self)]
+intention 9: 
+    +cell(20,20,gold)[source(percept)] <- ... +gold(X,Y); .print("Gold perceived: ",gold(X,Y)); !init_handle(gold(X,Y)) / {X=20, Y=20}
+, events = [+cell(19,19,obstacle)[source(percept)], +cell(20,21,gold)[source(percept)], +gsize(3,35,35)[source(percept)], +cell(20,20,ally)[source(percept)], +!wait_for_quad[source(self)]
+intention 1: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+]
+[miner2] Start new reasoning cycle
+[ExecutionControl] Agent leader has finished cycle 2, # of finished agents is 1/5
+[miner1] Removed:free[source(self)]
+[ExecutionControl] Agent miner4 has finished cycle 2, # of finished agents is 2/5
+[miner2] Selected event +!wait_for_quad[source(self)]
+intention 2: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner1] Added event -free[source(self)]
+intention 10: 
+    +cell(1,1,gold)[source(percept)] <- ... -free; +gold(X,Y); .print("Gold perceived: ",gold(X,Y)); !init_handle(gold(X,Y)) / {X=1, Y=1}
+, events = [+!wait_for_quad[source(self)]
+intention 5: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+, +!send_init_pos(3)[source(self)]
+intention 6: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _33=35, _32=35}
+]
+[miner1] Informing controller that I finished a reasoning cycle 2. Breakpoint is false
+[miner2] Selected option (@l__59[source(self)] +!wait_for_quad : free <- .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad.,{}) for event +!wait_for_quad[source(self)]
+intention 2: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner2] Selected intention intention 2: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[ExecutionControl] Agent miner1 has finished cycle 2, # of finished agents is 3/5
+[miner3] Informing controller that I finished a reasoning cycle 2. Breakpoint is false
+[miner2] Informing controller that I finished a reasoning cycle 2. Breakpoint is false
+[ExecutionControl] Agent miner3 has finished cycle 2, # of finished agents is 4/5
+[ExecutionControl] Agent miner2 has finished cycle 2, # of finished agents is 5/5
+[ExecutionControl] All agents have finished cycle 2
+[leader] Start new reasoning cycle
+[miner2] Start new reasoning cycle
+[leader] Doing (add) brf for quad(3,4,17,17,34,34)[source(self)]
+[miner4] Start new reasoning cycle
+[leader] Added event +quad(3,4,17,17,34,34)[source(self)]
+intention 4: 
+    +gsize(3,35,35)[source(percept)] <- ... +quad(S,4,(W div 2),(H div 2),(W-1),(H-1)); .print("Finished all quadrs for ",S) / {S=3, W=35, H=35}
+, events = []
+[miner3] Start new reasoning cycle
+[miner1] Start new reasoning cycle
+[miner1] Doing (add) brf for gold(1,1)[source(self)]
+[miner2] Generating goal deletion -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] from goal: +!wait_for_quad[source(self)]
+[miner2] Selected event +!send_init_pos(3)[source(self)]
+intention 7: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _93=35, _94=35}
+
+[miner1] Added event +gold(1,1)[source(self)]
+intention 10: 
+    +cell(1,1,gold)[source(percept)] <- ... +gold(X,Y); .print("Gold perceived: ",gold(X,Y)); !init_handle(gold(X,Y)) / {X=1, Y=1}
+, events = [+!wait_for_quad[source(self)]
+intention 5: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+, +!send_init_pos(3)[source(self)]
+intention 6: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _33=35, _32=35}
+]
 [miner4] Gold perceived: gold(20,20)
+[miner2] Selected option (@l__54[source(self)] +!send_init_pos(S) : pos(X,Y) <- .send(leader,tell,init_pos(S,X,Y)).,{X=20, Y=0, S=3}) for event +!send_init_pos(3)[source(self)]
+intention 7: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _93=35, _94=35}
+
+[ExecutionControl] Agent leader has finished cycle 3, # of finished agents is 1/5
+[miner2] Selected intention intention 7: 
+    +!send_init_pos(3)[source(self)] <- ... .send(leader,tell,init_pos(S,X,Y)) / {X=20, Y=0, S=3}
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _93=35, _94=35}
+
+[miner3] Generating goal deletion -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] from goal: +!wait_for_quad[source(self)]
+[miner3] Selected event +!send_init_pos(3)[source(self)]
+intention 8: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _155=35, _154=35}
+
+[miner2] Returning from IM l__54[source(self)], te=+!send_init_pos(3)[source(self)] unif={X=20, Y=0, S=3}
+[miner2] Returning from IM l__53[source(self)], te=+gsize(3,35,35)[source(percept)] unif={S=3, _93=35, _94=35}
+[miner2] Informing controller that I finished a reasoning cycle 3. Breakpoint is false
+[ExecutionControl] Agent miner4 has finished cycle 3, # of finished agents is 2/5
+[miner3] Selected option (@l__95[source(self)] +!send_init_pos(S) : pos(X,Y) <- .send(leader,tell,init_pos(S,X,Y)).,{X=6, Y=26, S=3}) for event +!send_init_pos(3)[source(self)]
+intention 8: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _155=35, _154=35}
+
+[miner3] Selected intention intention 8: 
+    +!send_init_pos(3)[source(self)] <- ... .send(leader,tell,init_pos(S,X,Y)) / {X=6, Y=26, S=3}
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _155=35, _154=35}
+
+[miner3] Returning from IM l__95[source(self)], te=+!send_init_pos(3)[source(self)] unif={X=6, Y=26, S=3}
+[miner3] Returning from IM l__94[source(self)], te=+gsize(3,35,35)[source(percept)] unif={S=3, _155=35, _154=35}
+[miner3] Informing controller that I finished a reasoning cycle 3. Breakpoint is false
+[ExecutionControl] Agent miner2 has finished cycle 3, # of finished agents is 3/5
+[ExecutionControl] Agent miner1 has finished cycle 3, # of finished agents is 4/5
+[ExecutionControl] Agent miner3 has finished cycle 3, # of finished agents is 5/5
+[ExecutionControl] All agents have finished cycle 3
+[ExecutionControl] Cycle 3 finished by timeout!
+[leader] Start new reasoning cycle
+[miner1] Start new reasoning cycle
+[miner2] Start new reasoning cycle
+[miner4] Start new reasoning cycle
+[miner2] Selected event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 2: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner3] Start new reasoning cycle
+[miner2] Selected option (@l__61[source(self)] -!wait_for_quad <- !!wait_for_quad.,{}) for event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 2: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner3] Selected event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 3: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner2] Selected intention intention 2: 
+    -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] <- ... !!wait_for_quad / {}
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
 [miner1] Gold perceived: gold(1,1)
-[miner1] Going for gold(1,1)
+[miner2] Returning from IM l__61[source(self)], te=-!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] unif={}
+[leader] received message: <mid1,miner2,tell,leader,init_pos(3,20,0)>
+[leader] received message: <mid2,miner3,tell,leader,init_pos(3,6,26)>
+[leader] Added event +!kqml_received(miner2,tell,init_pos(3,20,0),mid1), events = [+!kqml_received(miner2,tell,init_pos(3,20,0),mid1)]
+[leader] Finished all quadrs for 3
+[leader] Returning from IM quads[atomic,source(self)], te=+gsize(3,35,35)[source(percept)] unif={S=3, W=35, H=35}
+[miner3] Selected option (@l__102[source(self)] -!wait_for_quad <- !!wait_for_quad.,{}) for event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 3: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner3] Selected intention intention 3: 
+    -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] <- ... !!wait_for_quad / {}
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+    +free[source(self)] <- ... !wait_for_quad / {}
+
+[miner3] Returning from IM l__102[source(self)], te=-!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] unif={}
+[miner3] Returning from IM l__99[source(self)], te=+free[source(self)] unif={}
+[miner3] Informing controller that I finished a reasoning cycle 4. Breakpoint is false
+[miner2] Returning from IM l__58[source(self)], te=+free[source(self)] unif={}
+[miner2] Informing controller that I finished a reasoning cycle 4. Breakpoint is false
+[ExecutionControl] Agent miner1 has finished cycle 4, # of finished agents is 1/5
+[ExecutionControl] Agent miner3 has finished cycle 4, # of finished agents is 2/5
+[miner4] Selected option (@pih2[atomic,source(self)] +!init_handle(Gold) : pos(X,Y) <- .print("Going for ",Gold); -+last_checked(X,Y); !!handle(Gold).,{X=20, Gold=gold(20,20), Y=20}) for event +!init_handle(gold(20,20))[source(self)]
+intention 9: 
+    +cell(20,20,gold)[source(percept)] <- ... !init_handle(gold(X,Y)) / {X=20, Y=20}
+
 [miner4] Going for gold(20,20)
-[leader] - InitPos miner2 is 20x0
-[miner1] No longer free while waiting for quadrant.
-[leader] - InitPos miner3 is 6x26
-[miner1] Handling gold(1,1) now.
-[leader] - InitPos miner1 is 1x0
-[miner4] No longer free while waiting for quadrant.
-[miner4] Handling gold(20,20) now.
-[miner4] Announcing gold(20,21) to others
-[miner4] I've reached 20x20
-[leader] * InitPos miner4 is 20x20
-[leader] bid from miner2 for gold(20,21) is 21
-[leader] bid from miner3 for gold(20,21) is 19
-[leader] miner1's Quadrant is: 1
-[leader] bid from miner1 for gold(20,21) is 10000
-[leader] Gold gold(20,21) was allocated to miner3 options were [op(10000,miner1),op(19,miner3),op(21,miner2)]
-[miner3] Gold gold(20,21) allocated to miner3
-[miner3] Going for gold(20,21)
-[miner3] Handling gold(20,21) now.
-[leader] miner2's Quadrant is: 2
-[leader] miner3's Quadrant is: 3
-[leader] miner4's Quadrant is: 4
-[miner3] No longer free while waiting for quadrant.
-[miner1] I've reached 1x1
-[miner2] in Q1 to 34x0
-[miner4] I've reached 16x16
-[WorldModel] Agent 4 carried a gold to depot!
-[miner4] Finish handling gold(20,20)
-[miner4] in no Q, going to X1
-[miner2] in Q2 to 17x2
-[miner4] Gold perceived: gold(20,21)
-[miner4] Dropping around(_,_) desires and intentions to handle gold(20,21)
-[miner4] Going for gold(20,21)
-[miner4] Handling gold(20,21) now.
-[miner4] I've reached 20x21
-[miner3] miner4 has taken gold(20,21) that I am pursuing! Dropping my intention.
-[miner2] Failed next_step to 17x2 fixing and trying again!
-[miner4] Failed next_step to 16x16 fixing and trying again!
-[miner1] Failed next_step to 16x16 fixing and trying again!
-[miner3] Failed next_step to 6x26 fixing and trying again!
+[miner4] Doing (del) brf for last_checked(_275,_276)[source(self)] in BB=false
+[miner4] Doing (add) brf for last_checked(20,20)[source(self)]
+[miner4] Added event +last_checked(20,20)[source(self)]
+intention 9: 
+    +!init_handle(gold(20,20))[source(self)] <- ... -+last_checked(X,Y); !!handle(Gold) / {X=20, Gold=gold(20,20), Y=20}
+    +cell(20,20,gold)[source(percept)] <- ... !init_handle(gold(X,Y)) / {X=20, Y=20}
+, events = [+cell(19,19,obstacle)[source(percept)], +cell(20,21,gold)[source(percept)], +gsize(3,35,35)[source(percept)], +cell(20,20,ally)[source(percept)], +!wait_for_quad[source(self)]
+intention 1: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+]
+[miner4] Informing controller that I finished a reasoning cycle 4. Breakpoint is false
+[ExecutionControl] Agent leader has finished cycle 4, # of finished agents is 3/5
+[ExecutionControl] Agent miner2 has finished cycle 4, # of finished agents is 4/5
+[ExecutionControl] Agent miner4 has finished cycle 4, # of finished agents is 5/5
+[ExecutionControl] All agents have finished cycle 4
+[ExecutionControl] Cycle 4 finished by timeout!
+[ExecutionControl] Cycle 4 finished by timeout!
+[ExecutionControl] Cycle 4 finished by timeout!
+[ExecutionControl] Cycle 4 finished by timeout!
+[ExecutionControl] Cycle 4 finished by timeout!
+[ExecutionControl] Cycle 4 finished by timeout!
+[ExecutionControl] Cycle 4 finished by timeout!
+[leader] Start new reasoning cycle
+[leader] Added event +!kqml_received(miner3,tell,init_pos(3,6,26),mid2), events = [+!kqml_received(miner2,tell,init_pos(3,20,0),mid1), +!kqml_received(miner3,tell,init_pos(3,6,26),mid2)]
+[leader] Selected event +!kqml_received(miner2,tell,init_pos(3,20,0),mid1)
+[miner2] Start new reasoning cycle
+[miner2] Selected event +!wait_for_quad[source(self)]
+[miner2] Selected option (@l__59[source(self)] +!wait_for_quad : free <- .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad.,{}) for event +!wait_for_quad[source(self)]
+[miner2] Selected intention intention 11: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[leader] Selected option (@kqmlReceivedTellStructure[source(self)] +!kqml_received(Sender,tell,NS::Content,_12) : (.literal(Content) & (.ground(Content) & (not (.list(Content)) & .add_nested_source(Content,Sender,CA)))) <- +NS::CA.,{Sender=miner2, _12=mid1, NS=default, Content=init_pos(3,20,0), CA=init_pos(3,20,0)[source(miner2)]}) for event +!kqml_received(miner2,tell,init_pos(3,20,0),mid1)
+[leader] Selected intention intention 12: 
+    +!kqml_received(miner2,tell,init_pos(3,20,0),mid1) <- ... +NS::CA / {Sender=miner2, _12=mid1, NS=default, Content=init_pos(3,20,0), CA=init_pos(3,20,0)[source(miner2)]}
+
+[miner2] Informing controller that I finished a reasoning cycle 5. Breakpoint is false
+[leader] Doing (add) brf for init_pos(3,20,0)[source(miner2)]
+[miner4] Start new reasoning cycle
+[miner4] Returning from IM pih2[atomic,source(self)], te=+!init_handle(gold(20,20))[source(self)] unif={X=20, Gold=gold(20,20), Y=20}
+[miner4] Returning from IM pcell[atomic,source(self)], te=+cell(20,20,gold)[source(percept)] unif={X=20, Y=20}
+[miner1] Start new reasoning cycle
+[miner1] Selected option (@pih2[atomic,source(self)] +!init_handle(Gold) : pos(X,Y) <- .print("Going for ",Gold); -+last_checked(X,Y); !!handle(Gold).,{X=1, Gold=gold(1,1), Y=0}) for event +!init_handle(gold(1,1))[source(self)]
+intention 10: 
+    +cell(1,1,gold)[source(percept)] <- ... !init_handle(gold(X,Y)) / {X=1, Y=1}
+
+[miner1] Going for gold(1,1)
+[miner1] Doing (del) brf for last_checked(_277,_278)[source(self)] in BB=false
+[miner1] Doing (add) brf for last_checked(1,0)[source(self)]
+[miner1] Added event +last_checked(1,0)[source(self)]
+intention 10: 
+    +!init_handle(gold(1,1))[source(self)] <- ... -+last_checked(X,Y); !!handle(Gold) / {X=1, Gold=gold(1,1), Y=0}
+    +cell(1,1,gold)[source(percept)] <- ... !init_handle(gold(X,Y)) / {X=1, Y=1}
+, events = [+!wait_for_quad[source(self)]
+intention 5: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+, +!send_init_pos(3)[source(self)]
+intention 6: 
+    +gsize(3,35,35)[source(percept)] <- ... !send_init_pos(S) / {S=3, _33=35, _32=35}
+]
+[miner1] Informing controller that I finished a reasoning cycle 5. Breakpoint is false
+[leader] Added event +init_pos(3,20,0)[source(miner2)]
+intention 12: 
+    +!kqml_received(miner2,tell,init_pos(3,20,0),mid1) <- ... +NS::CA / {Sender=miner2, _12=mid1, NS=default, Content=init_pos(3,20,0), CA=init_pos(3,20,0)[source(miner2)]}
+, events = [+!kqml_received(miner3,tell,init_pos(3,6,26),mid2), +init_pos(3,20,0)[source(miner2)]
+intention 12: 
+    +!kqml_received(miner2,tell,init_pos(3,20,0),mid1) <- ... +NS::CA / {Sender=miner2, _12=mid1, NS=default, Content=init_pos(3,20,0), CA=init_pos(3,20,0)[source(miner2)]}
+]
+[leader] Informing controller that I finished a reasoning cycle 5. Breakpoint is false
+[miner3] Start new reasoning cycle
+[miner3] Selected event +!wait_for_quad[source(self)]
+[miner3] Selected option (@l__100[source(self)] +!wait_for_quad : free <- .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad.,{}) for event +!wait_for_quad[source(self)]
+[miner3] Selected intention intention 13: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner3] Informing controller that I finished a reasoning cycle 5. Breakpoint is false
+[ExecutionControl] Agent miner2 has finished cycle 5, # of finished agents is 1/5
+[ExecutionControl] Agent miner3 has finished cycle 5, # of finished agents is 2/5
+[ExecutionControl] Agent miner1 has finished cycle 5, # of finished agents is 3/5
+[ExecutionControl] Agent leader has finished cycle 5, # of finished agents is 4/5
+[ExecutionControl] Agent miner4 has finished cycle 5, # of finished agents is 5/5
+[ExecutionControl] All agents have finished cycle 5
+[leader] Start new reasoning cycle
+[miner2] Start new reasoning cycle
+[leader] Selected event +!kqml_received(miner3,tell,init_pos(3,6,26),mid2)
+[miner1] Start new reasoning cycle
+[miner2] Generating goal deletion -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] from goal: +!wait_for_quad[source(self)]
+[miner1] Returning from IM pih2[atomic,source(self)], te=+!init_handle(gold(1,1))[source(self)] unif={X=1, Gold=gold(1,1), Y=0}
+[miner1] Returning from IM pcell[atomic,source(self)], te=+cell(1,1,gold)[source(percept)] unif={X=1, Y=1}
+[miner4] Start new reasoning cycle
+[miner4] Selected event +cell(19,19,obstacle)[source(percept)]
+[miner2] Selected event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 11: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner4] Selected event +cell(20,21,gold)[source(percept)]
+[leader] Selected option (@kqmlReceivedTellStructure[source(self)] +!kqml_received(Sender,tell,NS::Content,_12) : (.literal(Content) & (.ground(Content) & (not (.list(Content)) & .add_nested_source(Content,Sender,CA)))) <- +NS::CA.,{Sender=miner3, _12=mid2, NS=default, Content=init_pos(3,6,26), CA=init_pos(3,6,26)[source(miner3)]}) for event +!kqml_received(miner3,tell,init_pos(3,6,26),mid2)
+[leader] Selected intention intention 14: 
+    +!kqml_received(miner3,tell,init_pos(3,6,26),mid2) <- ... +NS::CA / {Sender=miner3, _12=mid2, NS=default, Content=init_pos(3,6,26), CA=init_pos(3,6,26)[source(miner3)]}
+
+[leader] Doing (add) brf for init_pos(3,6,26)[source(miner3)]
+[leader] Added event +init_pos(3,6,26)[source(miner3)]
+intention 14: 
+    +!kqml_received(miner3,tell,init_pos(3,6,26),mid2) <- ... +NS::CA / {Sender=miner3, _12=mid2, NS=default, Content=init_pos(3,6,26), CA=init_pos(3,6,26)[source(miner3)]}
+, events = [+init_pos(3,20,0)[source(miner2)]
+intention 12: 
+    +!kqml_received(miner2,tell,init_pos(3,20,0),mid1) <- ... +NS::CA / {Sender=miner2, _12=mid1, NS=default, Content=init_pos(3,20,0), CA=init_pos(3,20,0)[source(miner2)]}
+, +init_pos(3,6,26)[source(miner3)]
+intention 14: 
+    +!kqml_received(miner3,tell,init_pos(3,6,26),mid2) <- ... +NS::CA / {Sender=miner3, _12=mid2, NS=default, Content=init_pos(3,6,26), CA=init_pos(3,6,26)[source(miner3)]}
+]
+[miner4] Selected option (@l__158[source(self)] +cell(X,Y,gold) : (not (gold(X,Y)) & not (committed_to(gold(X,Y)))) <- +gold(X,Y); .print("Announcing ",gold(X,Y)," to others"); .broadcast(tell,gold(X,Y)).,{X=20, Y=21}) for event +cell(20,21,gold)[source(percept)]
+[miner3] Start new reasoning cycle
+[miner4] Selected intention intention 15: 
+    +cell(20,21,gold)[source(percept)] <- ... +gold(X,Y); .print("Announcing ",gold(X,Y)," to others"); .broadcast(tell,gold(X,Y)) / {X=20, Y=21}
+
+[miner4] Doing (add) brf for gold(20,21)[source(self)]
+[miner4] Added event +gold(20,21)[source(self)]
+intention 15: 
+    +cell(20,21,gold)[source(percept)] <- ... +gold(X,Y); .print("Announcing ",gold(X,Y)," to others"); .broadcast(tell,gold(X,Y)) / {X=20, Y=21}
+, events = [+gsize(3,35,35)[source(percept)], +cell(20,20,ally)[source(percept)], +!wait_for_quad[source(self)]
+intention 1: 
+    +free[source(self)] <- ... !wait_for_quad / {}
+, +!handle(gold(20,20))[source(self)], +gold(20,21)[source(self)]
+intention 15: 
+    +cell(20,21,gold)[source(percept)] <- ... +gold(X,Y); .print("Announcing ",gold(X,Y)," to others"); .broadcast(tell,gold(X,Y)) / {X=20, Y=21}
+]
+[miner4] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[ExecutionControl] Agent miner1 has finished cycle 6, # of finished agents is 1/5
+[leader] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[ExecutionControl] Agent leader has finished cycle 6, # of finished agents is 2/5
+[miner2] Selected option (@l__61[source(self)] -!wait_for_quad <- !!wait_for_quad.,{}) for event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 11: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner2] Selected intention intention 11: 
+    -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] <- ... !!wait_for_quad / {}
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner2] Returning from IM l__61[source(self)], te=-!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] unif={}
+[miner2] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[ExecutionControl] Agent miner2 has finished cycle 6, # of finished agents is 3/5
+[miner3] Generating goal deletion -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] from goal: +!wait_for_quad[source(self)]
+[miner3] Selected event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 13: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner3] Selected option (@l__102[source(self)] -!wait_for_quad <- !!wait_for_quad.,{}) for event -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)]
+intention 13: 
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner3] Selected intention intention 13: 
+    -!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] <- ... !!wait_for_quad / {}
+    +!wait_for_quad[source(self)] <- ... .wait("+quadrant(X1,Y1,X2,Y2)",500); !!wait_for_quad / {}
+
+[miner3] Returning from IM l__102[source(self)], te=-!wait_for_quad[code(.wait("+quadrant(X1,Y1,X2,Y2)",500)),code_line(38),code_src("miner.asl"),error(wait_timeout),error_msg("timeout in .wait"),source(self)] unif={}
+[miner3] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[ExecutionControl] Agent miner3 has finished cycle 6, # of finished agents is 4/5
+[ExecutionControl] Agent miner4 has finished cycle 6, # of finished agents is 5/5
+[ExecutionControl] All agents have finished cycle 6
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[ExecutionControl] Cycle 6 finished by timeout!
+[leader] Start new reasoning cycle
+[leader] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[miner2] Start new reasoning cycle
+[miner2] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[miner1] Start new reasoning cycle
+[miner4] Start new reasoning cycle
+[miner4] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[miner3] Start new reasoning cycle
+[miner3] Informing controller that I finished a reasoning cycle 6. Breakpoint is false
+[miner2] I finished!
+[leader] I finished!
+[miner3] I finished!
+[miner1] I finished!

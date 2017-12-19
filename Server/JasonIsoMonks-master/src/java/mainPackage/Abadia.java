@@ -35,14 +35,8 @@ public class Abadia extends Environment {
 			this.thread = new Thread(new ConnectionListener(), "connectionListener" );
 			this.thread.start();
 			
-			System.out.println("Confirmando Unity...");
-			while(!AbadiaModel.getInstance().isUnityLoaded()) {
-				try {
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
+			System.out.println("Enviando confirmacion a Unity...");
+			AbadiaModel.getInstance().sendConfirmation();
 			
 			System.out.println("Esperando a Unity...");
 			while(!AbadiaModel.getInstance().isEnvironmentLoaded()){
