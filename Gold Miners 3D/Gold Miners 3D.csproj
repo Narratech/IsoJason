@@ -83,10 +83,17 @@
     <Compile Include="Assets\Scripts\Connection\Connection.cs" />
     <Compile Include="Assets\Scripts\Connection\ConnectionImp.cs" />
     <Compile Include="Assets\Scripts\Connection\ConnectionProperties.cs" />
-    <Compile Include="Assets\Scripts\GameEvent.cs" />
+    <Compile Include="Assets\Scripts\Connection\JasonCommunication\JasonInstructions.cs" />
     <Compile Include="Assets\Scripts\MainCamera.cs" />
-    <Compile Include="Assets\Scripts\World\Celda.cs" />
-    <Compile Include="Assets\Scripts\World\Tablero.cs" />
+    <Compile Include="Assets\Scripts\Utils\JSONObject\JSONAble.cs" />
+    <Compile Include="Assets\Scripts\Utils\JSONObject\JSONObject.cs" />
+    <Compile Include="Assets\Scripts\Utils\JSONObject\JSONTemplates.cs" />
+    <Compile Include="Assets\Scripts\Utils\JSONObject\VectorTemplates.cs" />
+    <Compile Include="Assets\Scripts\World\Cell.cs" />
+    <Compile Include="Assets\Scripts\World\GMWorldUpdater.cs" />
+    <Compile Include="Assets\Scripts\World\GoldMinersMaps.cs" />
+    <Compile Include="Assets\Scripts\World\GoldMinersWorld.cs" />
+    <Compile Include="Assets\Scripts\World\GridWorld.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

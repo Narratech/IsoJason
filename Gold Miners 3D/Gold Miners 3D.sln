@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gold Miners 3D", "Gold Miners 3D.csproj", "{32017A65-FE23-7AC8-A4C5-A7D28CD74896}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gold Miners 3D.Editor", "Gold Miners 3D.Editor.csproj", "{033AC125-3AE1-6A5E-FA5D-CAD3ACAF5A94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32017A65-FE23-7AC8-A4C5-A7D28CD74896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033AC125-3AE1-6A5E-FA5D-CAD3ACAF5A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033AC125-3AE1-6A5E-FA5D-CAD3ACAF5A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033AC125-3AE1-6A5E-FA5D-CAD3ACAF5A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033AC125-3AE1-6A5E-FA5D-CAD3ACAF5A94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

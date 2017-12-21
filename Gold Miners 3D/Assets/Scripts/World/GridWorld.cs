@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class GridWorld : MonoBehaviour {
 
-	// Use this for initialization
-	void Awake () {
-        // inIt data
+    protected int width, height, nbAgs;
+
+    public const int CLEAN = 0;
+    public const int AGENT = 2;
+    public const int OBSTACLE = 4;
+
+    protected int[,] data = null;
+    private Location[] agPos;
+
+    protected Random random = new Random();
+
+
+    public void Initialize(int width, int height, int nbAgs) {
+        this.width = width;
+        this.height = height;
+        this.nbAgs = nbAgs;
+
         data = new int[width, height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -19,12 +33,6 @@ public class GridWorld : MonoBehaviour {
             agPos[i] = new Location(-1, -1);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 
     public class Location
     {
@@ -42,17 +50,6 @@ public class GridWorld : MonoBehaviour {
             return new Location(this.x, this.y);
         }
     };
-
-    public int width, height, nbAgs;
-
-    public const int CLEAN = 0;
-    public const int AGENT = 2;
-    public const int OBSTACLE = 4;
-
-    protected int[,] data = null;
-    private Location[] agPos;
-
-    protected Random random = new Random();
 
     /*
     protected GridWorld(int w, int h, int nbAgs)
@@ -85,6 +82,10 @@ public class GridWorld : MonoBehaviour {
     public int GetHeight()
     {
         return height;
+    }
+
+    public int [,] GetData() {
+        return data;
     }
 
     public int GetNbOfAgs()

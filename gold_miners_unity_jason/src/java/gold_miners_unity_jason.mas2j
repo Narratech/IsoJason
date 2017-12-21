@@ -1,0 +1,13 @@
+MAS gold_miners_unity_jason {
+
+	infrastructure: Centralised
+
+	environment: mining.ExternalEnvironment(50)
+	    
+    agents:
+        leader;
+        miner #4;
+
+	aslSourcePath:
+		"src/asl";
+}

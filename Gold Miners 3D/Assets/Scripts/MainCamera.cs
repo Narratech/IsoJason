@@ -6,12 +6,12 @@ public class MainCamera : MonoBehaviour {
 
     public GameObject tablero;
     public GameObject mainCamera;
-    private Tablero tableroScript;
+    private GoldMinersWorld tableroScript;
 	// Use this for initialization
 	void Start () {
-        tableroScript = tablero.GetComponent<Tablero>();
-        float xDim = tableroScript.dimFilas;
-        float yDim = tableroScript.dimColumnas;
+        tableroScript = tablero.GetComponent<GoldMinersWorld>();
+        float xDim = tableroScript.GetWidth();
+        float yDim = tableroScript.GetHeight();
         float x, y;
         x = (float)((xDim / 2) - 0.5);
         y = (float)((yDim / 2) - 0.5);
