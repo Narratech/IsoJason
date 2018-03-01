@@ -1,0 +1,10 @@
+MAS gold_miners_unity_jason {
+
+	infrastructure: Centralised
+
+	environment: mining.ExternalEnvironment(30)
+	    
+    agents:
+        leader;
+        miner #4;
+}

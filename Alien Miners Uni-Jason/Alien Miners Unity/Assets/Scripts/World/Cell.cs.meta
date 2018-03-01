@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: a15f68c0be7503d41bd88d067602302b
+timeCreated: 1513207107
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - rend: {instanceID: 0}
+  - agentPrefab: {fileID: 1624047705910042, guid: 08b8c1eb7bc77a7429bde85261c2262f,
+      type: 2}
+  - goldPrefab: {fileID: 1832122960676792, guid: 78f364d0004ab1f449604d6b44e10fcd,
+      type: 2}
+  - obstaclePrefab: {fileID: 1732240810183342, guid: 28c73eed192e49143b1b105afab278f3,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
