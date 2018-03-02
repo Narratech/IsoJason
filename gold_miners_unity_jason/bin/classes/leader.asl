@@ -107,16 +107,27 @@ Aquí gana el que "la tiene más corta" :-P */
 +!allocate_miner(Gold) 
   //op(Dist,A) creo que simplemente es una estructura de pareja distancia-minero
   <- .findall(op(Dist,A),bid(Gold,Dist,A),LD); //saco todas esas parejas
+  	 //!publish_received(LD);
      .min(LD,op(DistCloser,Closer)); // me quedo con la distancia mínima
      DistCloser < 10000; // Estos mineros no me valen, que no pueden recoger más!
      .print("Gold ",Gold," was allocated to ",Closer, " options were ",LD);
      .broadcast(tell,allocated(Gold,Closer)). //broadcast es a todos los mineros!
+     //!publish_sent(allocated(Gold,Closer)).
 // Si no se han cumplido las condiciones anteriores, porque no había pujas
 //que no sean de 10000, básicamente... lo siento pero no puedo asignar a nadie
 //a que recoja ese oro... otra vez será! Vuelva usted a llamar más tarde :-[
 -!allocate_miner(Gold)
   <- .print("could not allocate gold ",Gold).
 
++!publish_received(Message)
+  <- jia.publish(Message,received). 
+-!publish_received(Message)
+	<- .print("Publishing received info failed.").
+	
++!publish_sent(Message)
+  <- jia.publish(Message,sent).
+-!publish_sent(Message)
+	<- .print("Publishing sent info failed.").
 
 /* El plan para cuando se termina la simulación */     
 // El plan se llama end y es atómico (vamos, que no se interrumpe hasta 

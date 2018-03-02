@@ -3,8 +3,7 @@ package mining;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import conection.Connection;
-import conection.ExternalConnection;
+import connection.ExternalConnector;
 
 public class WorldState {
 	
@@ -28,9 +27,13 @@ public class WorldState {
 	}
 	
 	private static void updateState() throws InterruptedException, JSONException{
-		Connection.getInstance().send("{\"name\":\"requestState\",\"parameters\":{}}");
-		String data = ExternalConnection.getInstance().receiveMsgMentalAction();
-		//System.out.println(data);
+		//Connection.getInstance().send("{\"name\":\"requestState\",\"parameters\":{}}");
+		String sentence = "{\"name\":\"requestState\",\"parameters\":{}}";
+		ExternalConnector extConnInstance = ExternalConnector.getInstance();
+		extConnInstance.sendInformationMsg(sentence);
+		
+		String data = extConnInstance.receiveInformationMsg();
+		
 		JSONObject js = new JSONObject(data);
 		JSONObject param = js.getJSONObject("parameters");
 		String state = param.getString("state");

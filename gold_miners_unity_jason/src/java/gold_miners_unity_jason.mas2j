@@ -7,7 +7,4 @@ MAS gold_miners_unity_jason {
     agents:
         leader;
         miner #4;
-
-	aslSourcePath:
-		"src/asl";
 }

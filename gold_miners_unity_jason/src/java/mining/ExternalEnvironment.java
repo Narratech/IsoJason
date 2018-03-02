@@ -10,9 +10,9 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import conection.Connection;
-import conection.ConnectionListener;
-import conection.ExternalConnection;
+import connection.Connection;
+import connection.ConnectionListener;
+import connection.ExternalConnector;
 
 /* Importante que el entorno que hagamos herede de Environment, la clase de
 Jason pensada para estos menesteres */
@@ -72,21 +72,20 @@ public class ExternalEnvironment extends jason.environment.Environment {
     
     
 	//--------INIT
-	/**
-	 * Método de inicialización en el que se espera que se introduzcan nuevas percepciones en el sistema multiagente (Jason)
-	 */
+    /**
+     * Instances a new ConnectionListener and ExternalConnector as threads. The main thread awaits outside environment to be loaded,
+     * meanwhile both threads start receiving messages.
+     * @param run
+     */
     @Override
     public void init(String[] args) {
         sleep  = Integer.parseInt(args[0]);
-		//Crea un ConnectionListener en thread para escuchar todas las acciones recibidas desde Unity
+		
+        //Crea un ConnectionListener en thread para escuchar todas las acciones recibidas desde Unity
+        
+        this.threadExternalConnection(true);
         
         this.threadSocketConnection(true);
-        
-		try {
-			this.threadExternalConnection(true);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		
 		System.out.println("Esperando a Unity...");
 		while(!loadedEnvironment){
@@ -100,11 +99,11 @@ public class ExternalEnvironment extends jason.environment.Environment {
 		System.out.println("Jason BDI ready...");
     }
     
-    /**
-     * Método que crea un ConnectionListener como thread. El hilo principal queda a la espera de que el entorno se cargue, mientras que
-     * el thread (ConnectionListener) queda a la espera de mensajes desde Unity.
-     * @param run
-     */
+	/**
+	 * Runs a thread that awaits for model responses about environment
+	 * @param run
+	 * @throws InterruptedException
+	 */
 	private void threadSocketConnection(boolean run) {
 		if (run) {
 			this.threadCL = new Thread(new ConnectionListener(), "connectionListener" );
@@ -114,20 +113,25 @@ public class ExternalEnvironment extends jason.environment.Environment {
 	}
 	
 	/**
-	 * Runs a thread that awaits from model responses
+	 * Runs a thread that awaits model messages
 	 * @param run
 	 * @throws InterruptedException
 	 */
-	private void threadExternalConnection(boolean run) throws InterruptedException {
+	private void threadExternalConnection(boolean run) {
 		if (run){
-			this.threadEC = new Thread(ExternalConnection.getInstance(), "externalConnection" );
+			
+			try {
+				this.threadEC = new Thread(ExternalConnector.getInstance(), "externalConnection" );
+			} catch (InterruptedException e) {
+				
+			}
 			//Empezará a escuchar la conexión
 			this.threadEC.start();
 		}
 	}
 	
 	/**
-	 * Enumerado que distingue los tipos de cambios que solicita Unity a través del socket.
+	 * Enum that differs the kind of changes may be solicited from outside the environment, through the socket.
 	 * @author Sergio González Jiménez
 	 *
 	 */
@@ -137,10 +141,10 @@ public class ExternalEnvironment extends jason.environment.Environment {
 	}
 	
 	/**
-	 * Interpreta y realiza el mensaje pasado por parametro, <b>data</b>.
+	 * Interprets and performs the action within the message <b>data</b>.
 	 * <li>(FROM Outside TO Jason)</li>
 	 * @param data
-	 * @return Devuelve el mismo string que recibe por entrada, data
+	 * @return Returns the same message it receives, <b>data</b>.
 	 * @throws JSONException
 	 */
 	public String performReceivedMessage(String data) throws JSONException{
@@ -197,11 +201,11 @@ public class ExternalEnvironment extends jason.environment.Environment {
 				break;
 			case ACTIONRESPONSE:
 				if (awaitedResponse){
-					actionResponseSem.release();
 					awaitedResponse = false;
 					if (success.contains("yes")){
 						succesfulExecutedAction = true;
 					}
+					actionResponseSem.release();
 				}
 				break;
 			default:
@@ -214,24 +218,23 @@ public class ExternalEnvironment extends jason.environment.Environment {
 	
     //--------EXECUTEACTION
     /**
-     * Transforma una acción de AgentSpeak en una acción real sobre el modelo
-     * Debe ser sobreescrita en una clase que extienda de UnityEnvironment
-     * @param ag : Nombre del agente
-	 * @param action : Acción a realizar
+     * Transforms an AgentSpeak action to a real one on the model.
+     * <li>(FROM Jason TO Outside)</li>
+     * @param ag : Agent's name
+	 * @param action : Action to be made
      */
     @Override
     public boolean executeAction(String ag, Structure action) {
     	try {
 			if (sleep > 0) {
-			    Thread.sleep(sleep); // Ralentiza acciones para poder "verlas"
+			    Thread.sleep(sleep); // Slows down the actions for doing them able to be seen
 			}
 			String actionName = action.getFunctor();
 			String parameters = action.getTerms().toString();
 			sendActionToModel(ag, actionName, parameters);
-			//Connection.getInstance().send("name:" + act +"|" + parameters);
 			
 			actionResponseSem.acquire();
-			
+			// If it was a succesful action, resets flag and returns true
 			if (succesfulExecutedAction) {
 				succesfulExecutedAction = false;
 			    return true;
@@ -249,12 +252,12 @@ public class ExternalEnvironment extends jason.environment.Environment {
 	 * @param ag : Who wants to execute the action
 	 * @param actionName
 	 * @param parameters : Needed parameters for the action execution in the model
+	 * @throws InterruptedException 
 	 */
-	private void sendActionToModel(String ag, String actionName, String parameters) {
+	private void sendActionToModel(String ag, String actionName, String parameters) throws InterruptedException {
 		String sentence = "{\"name\":\""+actionName+"\",\"parameters\":{\"who\":\""+ag+"\",\"otherParameters\":\""+parameters+"\"}}";
-		System.out.println("HACER "+ parameters + "POR " + ag);
 		awaitedResponse = true;
-		Connection.getInstance().send(sentence);
+		ExternalConnector.getInstance().sendEnvironmentMsg(sentence);
 	}
 	
 	
@@ -270,6 +273,7 @@ public class ExternalEnvironment extends jason.environment.Environment {
         running = false;
 		this.threadCL.interrupt();
 		this.threadEC.interrupt();
+		Connection.getInstance().stopConnection();
         super.stop();
     }
     
