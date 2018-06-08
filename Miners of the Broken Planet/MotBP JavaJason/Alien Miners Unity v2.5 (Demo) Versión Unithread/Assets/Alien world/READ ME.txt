@@ -1,0 +1,6 @@
+Thanks for purchasing the Alien World asset !
+
+To get acces to prime visual quality, you will have to follow those few easy steps :
+
+- Download and import the post processing stack of Unity available here on the store for free : https://assetstore.unity.com/packages/essentials/post-processing-stack-83912
+- Makes sure the Post processing profile (supplied with this asset in the main folder) is linked to the post processing behaviour script on the camera (Drag and drop it into)

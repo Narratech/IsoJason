@@ -1,0 +1,11 @@
+MAS gold_miners_unity_jason {
+
+	environment: mining.AlephMinersEnvironment(0)
+	
+	
+    agents:
+        leader agentArchClass architectures.SnifferLeaderAgArch;
+        alien #2;
+        miner #5;
+
+}

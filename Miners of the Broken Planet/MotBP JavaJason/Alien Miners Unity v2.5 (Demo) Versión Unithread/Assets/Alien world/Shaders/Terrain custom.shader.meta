@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 81f85866cb2eb2e40a7ff7dbe9133ef5
+timeCreated: 1479142349
+licenseType: Store
+ShaderImporter:
+  defaultTextures:
+  - _Splatmap: {fileID: 2800000, guid: c0ed73cbfcf739a4696bbcc3203a7b93, type: 3}
+  - _Normalmapterrain: {fileID: 2800000, guid: f8a14ff0ba282144d873859536892a97, type: 3}
+  - _Texture1: {fileID: 2800000, guid: 8fd14c5021d819e4f8f39d900fc6ee01, type: 3}
+  - _Texture2: {fileID: 2800000, guid: fa35600a07d8c0e4191724d14342c0b2, type: 3}
+  - _Texture3: {fileID: 2800000, guid: a083837239d87b6478ec00dd4d0a80d9, type: 3}
+  - _Normal1: {fileID: 2800000, guid: c82748a5aa8bda5448c2541b4f16f632, type: 3}
+  - _Normal2: {fileID: 2800000, guid: a1193b03c1b8fed40b778d49374701c0, type: 3}
+  - _Normal3: {fileID: 2800000, guid: 0db86668269d1a84796262ab8e40da8a, type: 3}
+  - _Normalfardetails: {fileID: 2800000, guid: 8238403a96f1dc7438313114f1ce4eed, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

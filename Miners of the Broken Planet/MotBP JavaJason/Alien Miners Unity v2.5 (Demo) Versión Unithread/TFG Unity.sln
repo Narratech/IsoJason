@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFG Unity", "TFG Unity.csproj", "{BAB26346-7774-2FF2-BED9-890F04955CF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TFG Unity.Editor", "TFG Unity.Editor.csproj", "{3D971DC6-3379-CBE4-15A7-49BA42373415}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAB26346-7774-2FF2-BED9-890F04955CF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB26346-7774-2FF2-BED9-890F04955CF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB26346-7774-2FF2-BED9-890F04955CF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB26346-7774-2FF2-BED9-890F04955CF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D971DC6-3379-CBE4-15A7-49BA42373415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D971DC6-3379-CBE4-15A7-49BA42373415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D971DC6-3379-CBE4-15A7-49BA42373415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D971DC6-3379-CBE4-15A7-49BA42373415}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

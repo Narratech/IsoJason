@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alien Miners Unity v2.5 (Demo) Versión Unithread", "Alien Miners Unity v2.5 (Demo) Versión Unithread.csproj", "{BE8AA8A1-55AD-1DD0-6104-909096E39FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alien Miners Unity v2.5 (Demo) Versión Unithread.Editor", "Alien Miners Unity v2.5 (Demo) Versión Unithread.Editor.csproj", "{CDA3FFF4-D837-F93E-0790-80F730ED0C5D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE8AA8A1-55AD-1DD0-6104-909096E39FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8AA8A1-55AD-1DD0-6104-909096E39FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8AA8A1-55AD-1DD0-6104-909096E39FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8AA8A1-55AD-1DD0-6104-909096E39FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA3FFF4-D837-F93E-0790-80F730ED0C5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA3FFF4-D837-F93E-0790-80F730ED0C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA3FFF4-D837-F93E-0790-80F730ED0C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA3FFF4-D837-F93E-0790-80F730ED0C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
